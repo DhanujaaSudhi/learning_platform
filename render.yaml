@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pysolve-academy
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SEED_PROBLEMS
+        value: "true"
+      - key: FRONTEND_DIST
+        value: /app/frontend_dist
+      - key: DATABASE_URL
+        value: sqlite:///./sql_app.db

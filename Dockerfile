@@ -4,7 +4,10 @@ COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 COPY frontend/ ./
 ENV VITE_API_URL=/api
+ARG VITE_GOOGLE_CLIENT_ID=669324300059-gpfioin1d2f9aftg2q9tlam6jir6s2ps.apps.googleusercontent.com
+ENV VITE_GOOGLE_CLIENT_ID=$VITE_GOOGLE_CLIENT_ID
 RUN npm run build
+
 
 FROM python:3.12-slim
 WORKDIR /app

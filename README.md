@@ -20,7 +20,8 @@ learning platform/
 │       ├── auth_router.py
 │       ├── problems_router.py
 │       ├── compiler_router.py
-│       └── progress_router.py
+│       ├── progress_router.py
+│       └── bookmark_router.py
 └── frontend/                 ← React + TypeScript + Tailwind
     ├── src/
     │   ├── App.tsx
@@ -40,7 +41,8 @@ learning platform/
     │       ├── Dashboard.tsx
     │       ├── ProblemList.tsx
     │       ├── ProblemDetails.tsx
-    │       └── Compiler.tsx
+    │       ├── Compiler.tsx
+    │       └── Bookmarks.tsx
     └── package.json
 ```
 
@@ -72,37 +74,44 @@ Frontend runs at: **http://localhost:5173**
 
 ## Features
 
-| Feature | Status |
-|---------|--------|
-| Landing page | ✅ |
-| Register / Login | ✅ |
-| JWT Authentication | ✅ |
-| Dashboard with stats | ✅ |
-| Problem List (505 problems) | ✅ |
-| Problem Details with explanation | ✅ |
-| Dry Run table | ✅ |
-| Monaco Code Editor | ✅ |
-| Live Python Compiler | ✅ |
-| Input/Output panel | ✅ |
-| Progress Tracking | ✅ |
-| Mark problem completed | ✅ |
-| Search & filter problems | ✅ |
-| Pagination | ✅ |
+|| Feature | Status |
+||---------|--------|
+|| Landing page | ✅ |
+|| Register / Login | ✅ |
+|| JWT Authentication | ✅ |
+|| Google Sign-In | ✅ |
+|| Dashboard with stats | ✅ |
+|| Problem List (505 problems) | ✅ |
+|| Problem Details with explanation | ✅ |
+|| Dry Run table | ✅ |
+|| Monaco Code Editor | ✅ |
+|| Live Python Compiler | ✅ |
+|| Input/Output panel | ✅ |
+|| Progress Tracking | ✅ |
+|| Mark problem completed | ✅ |
+|| Bookmark problems | ✅ |
+|| Search & filter problems | ✅ |
+|| Pagination | ✅ |
 
 ---
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Register |
-| POST | `/api/auth/login` | Login (JWT) |
-| GET | `/api/auth/me` | Current user |
-| GET | `/api/problems` | List problems |
-| GET | `/api/problems/{id}` | Problem detail |
-| POST | `/api/code/run` | Execute Python code |
-| GET | `/api/progress` | User progress |
-| PUT | `/api/progress/{id}` | Update status |
+|| Method | Endpoint | Description |
+||--------|----------|-------------|
+|| POST | `/api/auth/register` | Register |
+|| POST | `/api/auth/login` | Login (JWT) |
+|| POST | `/api/auth/google/auth` | Google Sign-In |
+|| GET | `/api/auth/me` | Current user |
+|| GET | `/api/problems` | List problems |
+|| GET | `/api/problems/{id}` | Problem detail |
+|| POST | `/api/code/run` | Execute Python code |
+|| GET | `/api/progress` | User progress |
+|| PUT | `/api/progress/{id}` | Update status |
+|| GET | `/api/bookmarks` | Get bookmarks |
+|| POST | `/api/bookmarks/{id}` | Add bookmark |
+|| DELETE | `/api/bookmarks/{id}` | Remove bookmark |
+|| GET | `/api/bookmarks/check/{id}` | Check bookmarked |
 
 ---
 
@@ -111,4 +120,10 @@ Frontend runs at: **http://localhost:5173**
 - **Frontend**: React 18, TypeScript, Tailwind CSS v4, Monaco Editor
 - **Backend**: FastAPI, SQLAlchemy, Pydantic v2, JWT Auth
 - **Database**: SQLite (dev) — PostgreSQL-ready
+- **Authentication**: JWT + Google OAuth
 
+---
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.

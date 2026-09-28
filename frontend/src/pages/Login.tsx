@@ -14,7 +14,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
+  const [_googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
 
   const handleGoogleCallback = useCallback(async (response: any) => {
     try {

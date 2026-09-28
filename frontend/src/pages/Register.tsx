@@ -18,7 +18,7 @@ export default function Register() {
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
+  const [_googleScriptLoaded, setGoogleScriptLoaded] = useState(false);
 
   const handleGoogleCallback = useCallback(async (response: any) => {
     try {

@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+passlib==1.7.4
+python-jose
+python-multipart
+pydantic-settings
+python-dotenv
+requests

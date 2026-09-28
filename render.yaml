@@ -15,4 +15,5 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./sql_app.db
       - key: ALLOWED_ORIGINS
-        value: "https://YOUR-SITE-NAME.netlify.app"
+        value: "https://fancy-biscuit-e55461.netlify.app,https://fancy-biscuit-e55f61.netlify.app"
+

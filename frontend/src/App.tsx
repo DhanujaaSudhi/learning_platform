@@ -14,7 +14,7 @@ import Bookmarks from './pages/Bookmarks';
 // Authenticated layout with sidebar
 function AppLayout({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
-  if (loading) return <div className="flex items-center justify-center h-full text-gray-500">Loading...</div>;
+  if (loading) return <div className="flex-1 flex items-center justify-center text-gray-500">Loading...</div>;
   if (!user) return <Navigate to="/login" replace />;
   return (
     <div className="flex flex-1 overflow-hidden">

@@ -21,12 +21,13 @@ export default function Login() {
       const res = await api.post('/auth/google/auth', {
         id_token: response.credential
       });
-      login(res.data.access_token);
+      await login(res.data.access_token);
       navigate('/dashboard');
     } catch (err) {
       alert('Google login failed');
     }
   }, [login, navigate]);
+
 
   useEffect(() => {
     // Check if script is already loaded

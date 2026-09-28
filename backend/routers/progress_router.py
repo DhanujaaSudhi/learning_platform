@@ -5,6 +5,7 @@ from datetime import datetime
 
 router = APIRouter(prefix="/api/progress", tags=["progress"])
 
+@router.get("")
 @router.get("/")
 def get_progress(db: Session = Depends(database.get_db), current_user: models.User = Depends(auth.get_current_user)):
     progress = db.query(models.UserProgress).filter(models.UserProgress.user_id == current_user.id).all()

@@ -5,6 +5,7 @@ import models, database, auth
 router = APIRouter(prefix="/api/bookmarks", tags=["bookmarks"])
 
 
+@router.get("")
 @router.get("/")
 def get_bookmarks(
     db: Session = Depends(database.get_db),

@@ -3,8 +3,9 @@ import api from '../services/api';
 
 interface AuthContextType {
   user: any;
-  login: (token: string) => void;
+  login: (token: string) => Promise<any>;
   logout: () => void;
+
   loading: boolean;
 }
 
@@ -30,10 +31,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, []);
 
-  const login = (token: string) => {
+  const login = async (token: string) => {
     localStorage.setItem('token', token);
-    api.get('/auth/me').then(res => setUser(res.data));
+    try {
+      const res = await api.get('/auth/me');
+      setUser(res.data);
+      return res.data;
+    } catch (err) {
+      localStorage.removeItem('token');
+      throw err;
+    }
   };
+
 
   const logout = () => {
     localStorage.removeItem('token');

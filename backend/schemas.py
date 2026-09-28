@@ -15,9 +15,9 @@ class GoogleUserCreate(BaseModel):
 
 class UserResponse(BaseModel):
     id: int
-    name: str
+    name: Optional[str] = "User"
     email: str
-    auth_provider: str
+    auth_provider: Optional[str] = "email"
     avatar_url: Optional[str] = None
     class Config:
         from_attributes = True

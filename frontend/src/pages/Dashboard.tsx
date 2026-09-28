@@ -9,14 +9,20 @@ export default function Dashboard() {
   const [progress, setProgress] = useState<any[]>([]);
 
   useEffect(() => {
-    api.get('/progress')
-      .then(res => setProgress(res.data))
+    api.get('/progress/')
+      .then(res => {
+        if (Array.isArray(res.data)) {
+          setProgress(res.data);
+        }
+      })
       .catch(() => {});
   }, []);
 
-  const completed = progress.filter(p => p.status === 'Completed').length;
-  const inProgress = progress.filter(p => p.status === 'In Progress').length;
+  const progressList = Array.isArray(progress) ? progress : [];
+  const completed = progressList.filter(p => p.status === 'Completed').length;
+  const inProgress = progressList.filter(p => p.status === 'In Progress').length;
   const total = 505;
+
 
   return (
     <div className="p-8 max-w-5xl mx-auto">

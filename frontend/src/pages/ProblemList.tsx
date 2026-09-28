@@ -18,10 +18,14 @@ export default function ProblemList() {
   const pageSize = 50;
 
   useEffect(() => {
-    api.get('/problems?skip=0&limit=505').then(res => {
-      setProblems(res.data);
-      setFiltered(res.data);
-    });
+    api.get('/problems?skip=0&limit=505')
+      .then(res => {
+        if (Array.isArray(res.data)) {
+          setProblems(res.data);
+          setFiltered(res.data);
+        }
+      })
+      .catch(() => {});
   }, []);
 
   useEffect(() => {

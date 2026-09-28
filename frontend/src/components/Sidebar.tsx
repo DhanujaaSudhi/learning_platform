@@ -45,10 +45,10 @@ export default function Sidebar() {
         <div className="px-3 py-3 border-t border-gray-700">
           <div className="flex items-center gap-3 px-3 py-2 rounded-lg">
             <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
-              {user.name?.[0]?.toUpperCase()}
+              {(user.name?.[0] || user.email?.[0] || 'U').toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">{user.name}</p>
+              <p className="text-sm font-medium text-white truncate">{user.name || user.email}</p>
               <p className="text-xs text-gray-400 truncate">{user.email}</p>
             </div>
           </div>

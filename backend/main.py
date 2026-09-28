@@ -68,7 +68,11 @@ if FRONTEND_DIST.exists():
 
     @app.get("/{full_path:path}")
     def serve_spa(full_path: str):
+        if full_path.startswith("api/") or full_path == "api":
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="API endpoint not found")
         candidate = FRONTEND_DIST / full_path
         if candidate.is_file():
             return FileResponse(candidate)
         return FileResponse(FRONTEND_DIST / "index.html")
+

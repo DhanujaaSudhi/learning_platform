@@ -5,6 +5,7 @@ from typing import List
 
 router = APIRouter(prefix="/api/problems", tags=["problems"])
 
+@router.get("", response_model=List[schemas.ProblemResponse])
 @router.get("/", response_model=List[schemas.ProblemResponse])
 def get_problems(skip: int = 0, limit: int = 100, db: Session = Depends(database.get_db)):
     return db.query(models.Problem).offset(skip).limit(limit).all()

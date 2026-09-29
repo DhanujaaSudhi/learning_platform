@@ -3,6 +3,10 @@
 A full-stack Python Problem-Solving Learning Platform with **505 problems**, a live Python compiler, step-by-step dry runs, and progress tracking.
 
 ---
+## Deployment
+
+(https://pysolve-academy1.onrender.com/dashboard)
+---
 
 ## Project Structure
 
@@ -94,25 +98,6 @@ Frontend runs at: **http://localhost:5173**
 || Pagination | ✅ |
 
 ---
-
-## API Endpoints
-
-|| Method | Endpoint | Description |
-||--------|----------|-------------|
-|| POST | `/api/auth/register` | Register |
-|| POST | `/api/auth/login` | Login (JWT) |
-|| POST | `/api/auth/google/auth` | Google Sign-In |
-|| GET | `/api/auth/me` | Current user |
-|| GET | `/api/problems` | List problems |
-|| GET | `/api/problems/{id}` | Problem detail |
-|| POST | `/api/code/run` | Execute Python code |
-|| GET | `/api/progress` | User progress |
-|| PUT | `/api/progress/{id}` | Update status |
-|| GET | `/api/bookmarks` | Get bookmarks |
-|| POST | `/api/bookmarks/{id}` | Add bookmark |
-|| DELETE | `/api/bookmarks/{id}` | Remove bookmark |
-|| GET | `/api/bookmarks/check/{id}` | Check bookmarked |
-
 ---
 
 ## Tech Stack
@@ -124,6 +109,3 @@ Frontend runs at: **http://localhost:5173**
 
 ---
 
-## Deployment
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
